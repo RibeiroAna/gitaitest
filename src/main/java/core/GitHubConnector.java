@@ -15,13 +15,13 @@ public class GitHubConnector {
 		this.username = username;
 	}
 
-	public void createRepository(String name, String description, String homepage, Boolean isPublic)
+	public void createRepository(String repoName, String description, String homepage, Boolean isPublic)
 			throws IOException {
-		gitHub.createRepository(name, description, homepage, isPublic);
+		gitHub.createRepository(repoName, description, homepage, isPublic);
 	}
 
-	public void uploadAia(String name, byte[] file) throws IOException {
-		GHRepository repository = gitHub.getRepository(username + "/" + name);
+	public void uploadAia(String repoName, byte[] file) throws IOException {
+		GHRepository repository = gitHub.getRepository(username + "/" + repoName);
 		repository.createContent(file, "first commit", "test.aia");
 	}
 
